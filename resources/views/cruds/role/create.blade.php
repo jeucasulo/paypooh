@@ -8,7 +8,7 @@
  <div class='panel panel-default'>
  <div class='panel-body'>
  <div class='col-md-12'>
- <form id='saveForm' class='form-horizontal' role='form' method='POST' action='{{route("cruds.perfil.store")}}' enctype='multipart/form-data'>
+ <form id='saveForm' class='form-horizontal' role='form' method='POST' action='{{route("cruds.role.store")}}' enctype='multipart/form-data'>
  {{ csrf_field() }}
  <!-- --------------------------------Name-------------------------------- -->
  <div class='form-group{{ $errors->has("name") ? " has-error" : "" }}'>
@@ -16,7 +16,7 @@
  	<div class='col-md-6'>
  		<input id='name' type='text' class='form-control' name='name' placeholder='text/string'>
  		@if ($errors->has("name"))
- 			<span class='help-block'>
+ 			<span class='help-block text-danger'>
  				 <strong>{{ $errors->first("name") }}</strong>
  			 </span>
  		@endif
@@ -30,7 +30,7 @@
  	<div class='col-md-6'>
  		<input id='label' type='text' class='form-control' name='label' placeholder='text/binary'>
  		@if ($errors->has("label"))
- 			<span class='help-block'>
+ 			<span class='help-block text-danger'>
  				 <strong>{{ $errors->first("label") }}</strong>
  			 </span>
  		@endif

@@ -50,11 +50,11 @@
  <div class='form-group'>
  <label for='' class='col-md-4 control-label'></label>
  <div class='col-md-6'>
- <a href='{{route('cruds.perfil.index')}}' class='btn btn-info'>Voltar</a>
+ <a href='{{route('cruds.role.index')}}' class='btn btn-info'>Voltar</a>
  <br><br>
- <a href='{{route('cruds.perfil.show',$previous)}}' class='glyphicon glyphicon-chevron-left'><</a>
+ <a href='{{route('cruds.role.show',$previous)}}' class='glyphicon glyphicon-chevron-left'><</a>
  <span class='badge'>{{$id}}</span>
- <a href='{{route('cruds.perfil.show',$next)}}' class='glyphicon glyphicon-chevron-right'>></a>
+ <a href='{{route('cruds.role.show',$next)}}' class='glyphicon glyphicon-chevron-right'>></a>
  </div>
  </div>
  </div>

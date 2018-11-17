@@ -3,7 +3,8 @@
 @section('content')
 
     <!-- Page Header -->
-    <header class="masthead" style="background-image: url('img/home-bg.jpg')">
+    <!-- <header class="masthead" style="background-image: url('img/home-bg.jpg')"> -->
+    <header class="masthead" style="background-image: url('img/rawpixel-645294-unsplash.jpg')">
       <div class="overlay"></div>
       <div class="container">
         <div class="row">

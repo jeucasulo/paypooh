@@ -1,11 +1,12 @@
 <?php
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
-// use App\Http\Request;
-use App\Http\Requests\RoleRequest;
 
 
-class RoleController extends Controller
+use App\Http\Requests\PlatformRequest;
+
+
+class PlatformController extends Controller
 {
 	/**
 	 * Display a listing of the resource.
@@ -14,8 +15,8 @@ class RoleController extends Controller
  	 */
 	public function index()
 	{
-		$roles = \App\Role::all();
-		return view('cruds.role.index', compact('roles'));
+		$platforms = \App\Platform::all();
+		return view('cruds.platform.index', compact('platforms'));
 	}
 
  	/**
@@ -26,10 +27,10 @@ class RoleController extends Controller
  	public function create()
  	 {
  		if(999==999){ // input your acl or condition
- 			//return redirect()->route('cruds.perfis.create');
- 			return view('cruds.role.create');
+ 			//return redirect()->route('cruds.platform.create');
+ 			return view('cruds.platform.create');
  		}else{
- 			return redirect()->route('cruds.perfis.index');
+ 			return redirect()->route('cruds.platform.index');
  		}
  	}
 
@@ -39,13 +40,24 @@ class RoleController extends Controller
  	 * @param  \Illuminate\Http\Request  $request
  	 * @return \Illuminate\Http\Response
  	 */
- 	public function store(RoleRequest $request)
+ 	// public function store(Request $request)
+ 	public function store(PlatformRequest $request)
  	{
+		// die(dd('teste'));
  			if(999==999){ // input your acl or condition
 
- 			\App\Role::create([
+			//    	'name', 'desc', 'integration', 'ec', 'pp','active','details','img'
+
+			\App\Platform::create([
 				'name' => $request->name,
-				'label' => $request->label
+				'desc' => $request->desc,
+				'integration' => $request->integration,
+				'ec' => $request->ec,
+				'pp' => $request->pp,
+				'active' => $request->active,
+				'details' => $request->details,
+				'img' => $request->img,
+				'order' => $request->order,
 			]);
 
  			\Session::flash('flash_message',[
@@ -53,9 +65,9 @@ class RoleController extends Controller
  				'msg'=>"Perfil adicionado com êxito",
  				'class'=>"alert-success"
  			]);
- 			return redirect()->route('cruds.role.index');
+ 			return redirect()->route('cruds.platform.index');
  		}else{
- 			return redirect()->route('cruds.role.index');
+ 			return redirect()->route('cruds.platform.index');
  		}
  	}
 
@@ -68,20 +80,20 @@ class RoleController extends Controller
  	public function show($id)
  	{
  		if(999==999){ // input your acl or condition
- 			$role = \App\Role::find($id);
+ 			$platform = \App\Platform::find($id);
  			// get previous user id
- 			$previous = \App\Role::where('id', '<', $role->id)->max('id');
+ 			$previous = \App\Platform::where('id', '<', $platform->id)->max('id');
  			if($previous==null){
- 				$previous = \App\Role::orderBy('id','desc')->value('id');
+ 				$previous = \App\Platform::orderBy('id','desc')->value('id');
  			}
  			// get next user id
- 			$next = \App\Role::where('id', '>', $role->id)->min('id');
+ 			$next = \App\Platform::where('id', '>', $platform->id)->min('id');
  			if($next==0){
- 				$next = \App\Role::orderBy('id','asc')->value('id');
+ 				$next = \App\Platform::orderBy('id','asc')->value('id');
  			}
- 			return view('cruds.role.show', compact('role','previous','next','id'));
+ 			return view('cruds.platform.show', compact('platform','previous','next','id'));
  		}else{
- 			return redirect()->route('cruds.role.index');
+ 			return redirect()->route('cruds.platform.index');
  		}
  	}
 
@@ -95,11 +107,11 @@ class RoleController extends Controller
  	{
 
  		if(999==999){ // input your acl or condition
- 			$role = \App\Role::find($id);
+ 			$platform = \App\Platform::find($id);
 
- 			return view('cruds.role.edit', compact('role','id'));
+ 			return view('cruds.platform.edit', compact('platform','id'));
  		}else{
- 			return redirect()->route('cruds.role.index');
+ 			return redirect()->route('cruds.platform.index');
  		}
  	}
 
@@ -110,21 +122,21 @@ class RoleController extends Controller
  	 * @param  int  $id
  	 * @return \Illuminate\Http\Response
  	 */
- 	// public function update(\App\Http\Requests\RoleRequest $request, $id)
- 	public function update(RoleRequest $request, $id)
+ 	// public function update(\App\Http\Requests\PlatformRequest $request, $id)
+ 	public function update(PlatformRequest $request, $id)
  	{
-		//Request $request
  		if(999==999){ // input your acl or condition
- 			\App\Role::find($id)->update($request->all());
- 			$role = \App\Role::find($id);// $role->name=Input::get('name');role->save()//$request->input('input_html')
+
+			\App\Platform::find($id)->update($request->all());
+
  			\Session::flash('flash_message',[
  				'title'=>"Sucesso!",
  				'msg'=>"Perfil atualizado com êxito",
  				'class'=>"alert-success"
  			]);
- 			return redirect()->route('cruds.role.index');
+ 			return redirect()->route('cruds.platform.index');
  		}else{
- 			return redirect()->route('cruds.role.index');
+ 			return redirect()->route('cruds.platform.index');
  		}
  	}
 
@@ -137,15 +149,15 @@ class RoleController extends Controller
  	public function destroy($id)
  	{
  		if(999==999){ // input your acl or condition
- 			$role = \App\Models\Role::find($id);
- 			$role->delete();
+ 			$platform = \App\Models\Platform::find($id);
+ 			$platform->delete();
  			Session::flash('flash_message',['
- 				msg'=>"Role successfully removed!",
+ 				msg'=>"Platform successfully removed!",
  				'class'=>"alert-success"
  			]);
- 			return redirect()->route('cruds.role.index');
+ 			return redirect()->route('cruds.platform.index');
  		}else{
- 			return redirect()->route('cruds.role.index');
+ 			return redirect()->route('cruds.platform.index');
  		}
  	}
 

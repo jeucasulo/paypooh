@@ -16,7 +16,7 @@
  	<div class='col-md-6'>
  		<input id='name' type='text' class='form-control' name='name' placeholder='text/string'>
  		@if ($errors->has("name"))
- 			<span class='help-block'>
+ 			<span class='help-block text-danger'>
  				 <strong>{{ $errors->first("name") }}</strong>
  			 </span>
  		@endif
@@ -30,7 +30,7 @@
  	<div class='col-md-6'>
  		<input id='label' type='text' class='form-control' name='label' placeholder='text/binary'>
  		@if ($errors->has("label"))
- 			<span class='help-block'>
+ 			<span class='help-block text-danger'>
  				 <strong>{{ $errors->first("label") }}</strong>
  			 </span>
  		@endif

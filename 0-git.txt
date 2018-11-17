@@ -42,4 +42,4 @@ You can initialize this repository with code from a Subversion, Mercurial, or TF
 
 
 git remote set-url --add --push origin git@gitlab.com:freelasweb/paypooh.git
-git remote set-url --add --push origin git://another/repo.git
+git remote set-url --add --push origin https://github.com/jeucasulo/paypooh.git

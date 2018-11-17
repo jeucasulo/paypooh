@@ -2,6 +2,8 @@
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 // use App\Http\Request;
+use App\Http\Requests\RoleRequest;
+
 
 class PermissionController extends Controller
 {
@@ -37,14 +39,10 @@ class PermissionController extends Controller
  	 * @param  \Illuminate\Http\Request  $request
  	 * @return \Illuminate\Http\Response
  	 */
- 	public function store(Request $request)
+ 	public function store(RoleRequest $request)
  	{
 		// die(dd('teste'));
  			if(999==999){ // input your acl or condition
-			$validatedData = $request->validate([
-	        'label' => 'required|unique:permissions|max:25',
-	        'name' => 'required|unique:permissions|max:25',
-	    ]);
 
 
  			\App\Permission::create([
@@ -115,7 +113,7 @@ class PermissionController extends Controller
  	 * @return \Illuminate\Http\Response
  	 */
  	// public function update(\App\Http\Requests\PermissionRequest $request, $id)
- 	public function update(Request $request, $id)
+ 	public function update(RoleRequest $request, $id)
  	{
 		//Request $request
  		if(999==999){ // input your acl or condition

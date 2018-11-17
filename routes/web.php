@@ -55,13 +55,13 @@ Route::get('/test', 'AngerController@test')->name('test');
 
 
 /*---------- BLOCK Perfil CRUD----------*/
-Route::get('/crud/perfil', ['uses' => 'RoleController@index', 'as' => 'cruds.perfil.index']);
-Route::get('/crud/perfil/show/{id}', ['uses' => 'RoleController@show', 'as' => 'cruds.perfil.show']);
-Route::get('/crud/perfil/create', ['uses' => 'RoleController@create', 'as' => 'cruds.perfil.create']);
-Route::post('/crud/perfil/store', ['uses' => 'RoleController@store', 'as' => 'cruds.perfil.store']);
-Route::get('/crud/perfil/edit/{id}', ['uses' => 'RoleController@edit', 'as' => 'cruds.perfil.edit']);
-Route::put('/crud/perfil/update/{id}', ['uses' => 'RoleController@update', 'as' => 'cruds.perfil.update']);
-Route::get('/crud/perfil/destroy/{id}', ['uses' => 'RoleController@destroy', 'as' => 'cruds.perfil.destroy']);
+Route::get('/crud/role', ['uses' => 'RoleController@index', 'as' => 'cruds.role.index']);
+Route::get('/crud/role/show/{id}', ['uses' => 'RoleController@show', 'as' => 'cruds.role.show']);
+Route::get('/crud/role/create', ['uses' => 'RoleController@create', 'as' => 'cruds.role.create']);
+Route::post('/crud/role/store', ['uses' => 'RoleController@store', 'as' => 'cruds.role.store']);
+Route::get('/crud/role/edit/{id}', ['uses' => 'RoleController@edit', 'as' => 'cruds.role.edit']);
+Route::put('/crud/role/update/{id}', ['uses' => 'RoleController@update', 'as' => 'cruds.role.update']);
+Route::get('/crud/role/destroy/{id}', ['uses' => 'RoleController@destroy', 'as' => 'cruds.role.destroy']);
 /*---------- BLOCK Perfil CRUD----------*/
 
 /*---------- BLOCK Permission CRUD----------*/
@@ -71,5 +71,35 @@ Route::get('/crud/permission/create', ['uses' => 'PermissionController@create', 
 Route::post('/crud/permission/store', ['uses' => 'PermissionController@store', 'as' => 'cruds.permission.store']);
 Route::get('/crud/permission/edit/{id}', ['uses' => 'PermissionController@edit', 'as' => 'cruds.permission.edit']);
 Route::put('/crud/permission/update/{id}', ['uses' => 'PermissionController@update', 'as' => 'cruds.permission.update']);
-Route::get('/crud/permission/destroy/{id}', ['uses' => 'PermissionController@destroy', 'as' => 'cruds.permission.destroy']);
+Route::get('/crud/permission/destroy/{id}', ['uses' => 'PermissionController@de stroy', 'as' => 'cruds.permission.destroy']);
 /*---------- BLOCK Permission CRUD----------*/
+
+/*---------- BLOCK Platform CRUD----------*/
+Route::get('/crud/platform', ['uses' => 'PlatformController@index', 'as' => 'cruds.platform.index']);
+Route::get('/crud/platform/show/{id}', ['uses' => 'PlatformController@show', 'as' => 'cruds.platform.show']);
+Route::get('/crud/platform/create', ['uses' => 'PlatformController@create', 'as' => 'cruds.platform.create']);
+Route::post('/crud/platform/store', ['uses' => 'PlatformController@store', 'as' => 'cruds.platform.store']);
+Route::get('/crud/platform/edit/{id}', ['uses' => 'PlatformController@edit', 'as' => 'cruds.platform.edit']);
+Route::put('/crud/platform/update/{id}', ['uses' => 'PlatformController@update', 'as' => 'cruds.platform.update']);
+Route::get('/crud/platform/destroy/{id}', ['uses' => 'PlatformController@destroy', 'as' => 'cruds.platform.destroy']);
+/*---------- BLOCK Platform CRUD----------*/
+
+/*---------- BLOCK Topic CRUD----------*/
+Route::get('/crud/topic', ['uses' => 'TopicController@index', 'as' => 'cruds.topic.index']);
+Route::get('/crud/topic/show/{id}', ['uses' => 'TopicController@show', 'as' => 'cruds.topic.show']);
+Route::get('/crud/topic/create', ['uses' => 'TopicController@create', 'as' => 'cruds.topic.create']);
+Route::post('/crud/topic/store', ['uses' => 'TopicController@store', 'as' => 'cruds.topic.store']);
+Route::get('/crud/topic/edit/{id}', ['uses' => 'TopicController@edit', 'as' => 'cruds.topic.edit']);
+Route::put('/crud/topic/update/{id}', ['uses' => 'TopicController@update', 'as' => 'cruds.topic.update']);
+Route::get('/crud/topic/destroy/{id}', ['uses' => 'TopicController@destroy', 'as' => 'cruds.topic.destroy']);
+/*---------- BLOCK Topic CRUD----------*/
+
+/*---------- BLOCK Comment CRUD----------*/
+Route::get('/crud/comment', ['uses' => 'CommentController@index', 'as' => 'cruds.comment.index']);
+Route::get('/crud/comment/show/{id}', ['uses' => 'CommentController@show', 'as' => 'cruds.comment.show']);
+Route::get('/crud/comment/create', ['uses' => 'CommentController@create', 'as' => 'cruds.comment.create']);
+Route::post('/crud/comment/store', ['uses' => 'CommentController@store', 'as' => 'cruds.comment.store']);
+Route::get('/crud/comment/edit/{id}', ['uses' => 'CommentController@edit', 'as' => 'cruds.comment.edit']);
+Route::put('/crud/comment/update/{id}', ['uses' => 'CommentController@update', 'as' => 'cruds.comment.update']);
+Route::get('/crud/comment/destroy/{id}', ['uses' => 'CommentController@destroy', 'as' => 'cruds.comment.destroy']);
+/*---------- BLOCK Comment CRUD----------*/

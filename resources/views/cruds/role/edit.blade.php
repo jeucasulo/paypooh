@@ -8,7 +8,7 @@
  <div class='panel panel-default'>
  <div class='panel-body'>
  <div class='col-md-12'>
- <form id='updateForm' class='form-horizontal' role='form' method='POST' action='{{route('cruds.perfil.update', $role->id)}}' enctype='multipart/form-data'>
+ <form id='updateForm' class='form-horizontal' role='form' method='POST' action='{{route('cruds.role.update', $role->id)}}' enctype='multipart/form-data'>
  <input type='hidden' name='_method' value='put'>
  {{ csrf_field() }}
  <!-- --------------------------------name-------------------------------- -->
@@ -18,7 +18,7 @@
  		<!-- <label id='name' type='text' class='form-control' name='name'>{{$role->name}}<label> -->
     <input id='name' type='text' class='form-control' name='name' placeholder='text/string' value="{{$role->name}}">
  		@if ($errors->has("name"))
- 			<span class='help-block'>
+ 			<span class='help-block text-danger'>
  				 <strong>{{ $errors->first("name") }}</strong>
  			 </span>
  		@endif
@@ -32,7 +32,7 @@
     <input id='label' type='text' class='form-control' name='label' placeholder='text/binary' value='{{$role->label}}'>
 
  		@if ($errors->has("label"))
- 			<span class='help-block'>
+ 			<span class='help-block text-danger'>
  				 <strong>{{ $errors->first("label") }}</strong>
  			 </span>
  		@endif
@@ -41,8 +41,8 @@
  <!-- --------------------------------/label-------------------------------- -->
  <div class='form-group{{ $errors->has("label") ? " has-error" : "" }}'>
    <div class='col-md-6'>
-      <!-- <a href='{{route('cruds.perfil.update',$id)}}' class='btn btn-info'>Atualizar</a> -->
-      <button type="submit"  href='{{route('cruds.perfil.update',$id)}}' class='btn btn-info'>Atualizar</button>
+      <!-- <a href='{{route('cruds.role.update',$id)}}' class='btn btn-info'>Atualizar</a> -->
+      <button type="submit"  href='{{route('cruds.role.update',$id)}}' class='btn btn-info'>Atualizar</button>
    </div>
  </div>
 
@@ -52,7 +52,7 @@
  <div class='form-group'>
  <label for='' class='col-md-4 control-label'></label>
  <div class='col-md-6'>
- <a href='{{route('cruds.perfil.index')}}' class='btn btn-info'>Voltar</a>
+ <a href='{{route('cruds.role.index')}}' class='btn btn-info'>Voltar</a>
  <br><br>
 
  <span class='badge'>{{$id}}</span>

@@ -58,7 +58,7 @@
 			    <form class="form-inline my-2 my-lg-0">
 			        <a class="nav-link" href="{{route('anger.users')}}">Usuários<span class="sr-only">(current)</span></a>
 			        <a class="nav-link" href="{{route('anger.roles')}}">Perfis<span class="sr-only">(current)</span></a>
-			        <a class="nav-link" href="{{route('anger.edit')}}">Editar<span class="sr-only">(current)</span></a>
+			        <a class="nav-link" href="{{route('anger.check')}}">Editar<span class="sr-only">(current)</span></a>
 			        <a class="nav-link" href="#">Instruções<span class="sr-only">(current)</span></a>
 
 

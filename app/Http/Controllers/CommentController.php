@@ -2,10 +2,10 @@
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 // use App\Http\Request;
-use App\Http\Requests\RoleRequest;
+use App\Http\Requests\CommentRequest;
 
 
-class RoleController extends Controller
+class CommentController extends Controller
 {
 	/**
 	 * Display a listing of the resource.
@@ -14,8 +14,8 @@ class RoleController extends Controller
  	 */
 	public function index()
 	{
-		$roles = \App\Role::all();
-		return view('cruds.role.index', compact('roles'));
+		$comments = \App\Comment::all();
+		return view('cruds.comment.index', compact('comments'));
 	}
 
  	/**
@@ -26,10 +26,11 @@ class RoleController extends Controller
  	public function create()
  	 {
  		if(999==999){ // input your acl or condition
- 			//return redirect()->route('cruds.perfis.create');
- 			return view('cruds.role.create');
+ 			//return redirect()->route('cruds.comment.create');
+			$topics = \App\Topic::all();
+ 			return view('cruds.comment.create', compact('topics'));
  		}else{
- 			return redirect()->route('cruds.perfis.index');
+ 			return redirect()->route('cruds.comment.index');
  		}
  	}
 
@@ -39,23 +40,22 @@ class RoleController extends Controller
  	 * @param  \Illuminate\Http\Request  $request
  	 * @return \Illuminate\Http\Response
  	 */
- 	public function store(RoleRequest $request)
+ 	public function store(CommentRequest $request)
  	{
+		
  			if(999==999){ // input your acl or condition
 
- 			\App\Role::create([
-				'name' => $request->name,
-				'label' => $request->label
-			]);
+
+ 			\App\Comment::create($request->all());
 
  			\Session::flash('flash_message',[
  				'title'=>"Sucesso!",
  				'msg'=>"Perfil adicionado com êxito",
  				'class'=>"alert-success"
  			]);
- 			return redirect()->route('cruds.role.index');
+ 			return redirect()->route('cruds.comment.index');
  		}else{
- 			return redirect()->route('cruds.role.index');
+ 			return redirect()->route('cruds.comment.index');
  		}
  	}
 
@@ -68,20 +68,20 @@ class RoleController extends Controller
  	public function show($id)
  	{
  		if(999==999){ // input your acl or condition
- 			$role = \App\Role::find($id);
+ 			$comment = \App\Comment::find($id);
  			// get previous user id
- 			$previous = \App\Role::where('id', '<', $role->id)->max('id');
+ 			$previous = \App\Comment::where('id', '<', $comment->id)->max('id');
  			if($previous==null){
- 				$previous = \App\Role::orderBy('id','desc')->value('id');
+ 				$previous = \App\Comment::orderBy('id','desc')->value('id');
  			}
  			// get next user id
- 			$next = \App\Role::where('id', '>', $role->id)->min('id');
+ 			$next = \App\Comment::where('id', '>', $comment->id)->min('id');
  			if($next==0){
- 				$next = \App\Role::orderBy('id','asc')->value('id');
+ 				$next = \App\Comment::orderBy('id','asc')->value('id');
  			}
- 			return view('cruds.role.show', compact('role','previous','next','id'));
+ 			return view('cruds.comment.show', compact('comment','previous','next','id'));
  		}else{
- 			return redirect()->route('cruds.role.index');
+ 			return redirect()->route('cruds.comment.index');
  		}
  	}
 
@@ -95,11 +95,13 @@ class RoleController extends Controller
  	{
 
  		if(999==999){ // input your acl or condition
- 			$role = \App\Role::find($id);
+ 			$comment = \App\Comment::find($id);
+			$platforms = \App\Platform::all();
 
- 			return view('cruds.role.edit', compact('role','id'));
+
+ 			return view('cruds.comment.edit', compact('comment','id','platforms'));
  		}else{
- 			return redirect()->route('cruds.role.index');
+ 			return redirect()->route('cruds.comment.index');
  		}
  	}
 
@@ -110,21 +112,21 @@ class RoleController extends Controller
  	 * @param  int  $id
  	 * @return \Illuminate\Http\Response
  	 */
- 	// public function update(\App\Http\Requests\RoleRequest $request, $id)
- 	public function update(RoleRequest $request, $id)
+ 	// public function update(\App\Http\Requests\CommentRequest $request, $id)
+ 	public function update(CommentRequest $request, $id)
  	{
 		//Request $request
  		if(999==999){ // input your acl or condition
- 			\App\Role::find($id)->update($request->all());
- 			$role = \App\Role::find($id);// $role->name=Input::get('name');role->save()//$request->input('input_html')
+ 			\App\Comment::find($id)->update($request->all());
+ 			$comment = \App\Comment::find($id);// $comment->name=Input::get('name');comment->save()//$request->input('input_html')
  			\Session::flash('flash_message',[
  				'title'=>"Sucesso!",
  				'msg'=>"Perfil atualizado com êxito",
  				'class'=>"alert-success"
  			]);
- 			return redirect()->route('cruds.role.index');
+ 			return redirect()->route('cruds.comment.index');
  		}else{
- 			return redirect()->route('cruds.role.index');
+ 			return redirect()->route('cruds.comment.index');
  		}
  	}
 
@@ -137,15 +139,15 @@ class RoleController extends Controller
  	public function destroy($id)
  	{
  		if(999==999){ // input your acl or condition
- 			$role = \App\Models\Role::find($id);
- 			$role->delete();
+ 			$comment = \App\Models\Comment::find($id);
+ 			$comment->delete();
  			Session::flash('flash_message',['
- 				msg'=>"Role successfully removed!",
+ 				msg'=>"Comment successfully removed!",
  				'class'=>"alert-success"
  			]);
- 			return redirect()->route('cruds.role.index');
+ 			return redirect()->route('cruds.comment.index');
  		}else{
- 			return redirect()->route('cruds.role.index');
+ 			return redirect()->route('cruds.comment.index');
  		}
  	}
 

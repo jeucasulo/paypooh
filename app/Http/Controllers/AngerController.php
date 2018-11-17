@@ -189,7 +189,7 @@ class AngerController extends Controller
             return view('anger.check', compact('permissions'));
 
         }else{
-            echo "Não logado, ver migrações";
+            echo "Você precisa estar logado";
         }
     }
 

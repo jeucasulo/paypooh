@@ -18,7 +18,7 @@
  		<!-- <label id='name' type='text' class='form-control' name='name'>{{$permission->name}}<label> -->
     <input id='name' type='text' class='form-control' name='name' placeholder='text/string' value="{{$permission->name}}">
  		@if ($errors->has("name"))
- 			<span class='help-block'>
+ 			<span class='help-block text-danger'>
  				 <strong>{{ $errors->first("name") }}</strong>
  			 </span>
  		@endif
@@ -32,7 +32,7 @@
     <input id='label' type='text' class='form-control' name='label' placeholder='text/binary' value='{{$permission->label}}'>
 
  		@if ($errors->has("label"))
- 			<span class='help-block'>
+ 			<span class='help-block text-danger'>
  				 <strong>{{ $errors->first("label") }}</strong>
  			 </span>
  		@endif
