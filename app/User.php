@@ -6,7 +6,6 @@ use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use App\Traits\Anger;
 
-
 class User extends Authenticatable
 {
     use Notifiable;
@@ -55,6 +54,4 @@ class User extends Authenticatable
 
         return $this->roles->contains('name',$permission_roles);
     }
-    //
-
 }

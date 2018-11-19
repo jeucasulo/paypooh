@@ -134,7 +134,10 @@
  <div class='form-group{{ $errors->has("img") ? " has-error" : "" }}'>
    <label for='img' class='col-md-4 control-label'>Imagem</label>
    <div class='col-md-6'>
-     <input id='img' type='text' class='form-control' name='img' placeholder='Link da imagem da plataforma' value="{{$platform->img}}">
+     <label for='img' class='form-control'>{{$platform->img}}<label>
+     <input id='img' type='hidden' class='form-control' name='img' placeholder='Link da imagem da plataforma' value="{{$platform->img}}" readonly>
+     <img src="/img/plataformas/{{$platform->img}}" alt="" width="300" height="300">
+     <a href='{{route('cruds.platform.img',$platform->id)}}' class='btn btn-info'>Atualizar imagem</a>
      @if ($errors->has("img"))
      <span class='help-block text-danger'>
        <strong>{{ $errors->first("img") }}</strong>

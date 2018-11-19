@@ -2,8 +2,12 @@
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
-
 use App\Http\Requests\PlatformRequest;
+use Intervention\Image\ImageManager;
+use Intervention\Image\Facades\Image;
+
+use File;
+
 
 
 class PlatformController extends Controller
@@ -40,13 +44,52 @@ class PlatformController extends Controller
  	 * @param  \Illuminate\Http\Request  $request
  	 * @return \Illuminate\Http\Response
  	 */
- 	// public function store(Request $request)
+	public function imgUpdate(Request $request){
+		$this->validate($request, ['img' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048'],['img.required'=>'Imagem requerida']);
+
+		// delete old img
+		$platform = \App\Platform::find($request->id);
+		if(File::exists("img/plataformas/".$platform->img)) {
+    	File::delete("img/plataformas/".$platform->img);
+		}
+		// create new img
+		// $string = str_replace(' ', '', $string);
+
+		$imgName = "platform-".str_replace(' ', '', $request->name).".".$request->img->getClientOriginalExtension();
+		$this->validate($request, ['img' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048']);
+		$img = Image::make($request->file('img')->getRealPath());
+		$img->save('img/plataformas/'.$imgName);
+		//"imgName: platform-LojaIntegrada.jpg - platform->img: platform-LojaIntegrada.jpg"
+		//update db
+		$platform->img = $imgName;
+		// dd("imgName: nome da imagem que sera salvo na galeria: ".$imgName."\n\nplatform->img: nome da imagem atualizada no banco de dados: ".$platform->img);
+		$platform->save;
+		// dd($platform);
+
+		\App\Platform::find($request->id)->update([
+			'img'=> $platform->img
+		]);
+
+
+		return redirect()->route('cruds.platform.img',$request->id);
+
+	}
+	public function imgStore($imgName,$request){
+			$this->validate($request, ['img' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048'],['img.required'=>'Imagem requerida']);
+			$img = Image::make($request->file('img')->getRealPath());
+			$img->save('img/plataformas/'.$imgName);
+
+	}
+	public function img($id){
+			$platform = \App\Platform::find($id);
+			return view('cruds.platform.img',compact('id','platform'));
+	}
  	public function store(PlatformRequest $request)
  	{
-		// die(dd('teste'));
  			if(999==999){ // input your acl or condition
 
-			//    	'name', 'desc', 'integration', 'ec', 'pp','active','details','img'
+			$imgName = "platform-".str_replace(' ', '', $request->name).".".$request->img->getClientOriginalExtension();
+			$this->imgStore($imgName,$request);
 
 			\App\Platform::create([
 				'name' => $request->name,
@@ -56,7 +99,7 @@ class PlatformController extends Controller
 				'pp' => $request->pp,
 				'active' => $request->active,
 				'details' => $request->details,
-				'img' => $request->img,
+				'img' => $imgName,
 				'order' => $request->order,
 			]);
 
@@ -126,6 +169,7 @@ class PlatformController extends Controller
  	public function update(PlatformRequest $request, $id)
  	{
  		if(999==999){ // input your acl or condition
+
 
 			\App\Platform::find($id)->update($request->all());
 

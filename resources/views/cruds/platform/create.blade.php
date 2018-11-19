@@ -137,7 +137,10 @@
               <div class='form-group{{ $errors->has("img") ? " has-error" : "" }}'>
                 <label for='img' class='col-md-4 control-label'>Imagem</label>
                 <div class='col-md-6'>
-                  <input id='img' type='text' class='form-control' name='img' placeholder='Link da imagem da plataforma'>
+                  <!-- <input id='img' type='text' class='form-control' name='img' placeholder='Link da imagem da plataforma'> -->
+                  <input id='img' type='file' class='form-control' name='img[]' placeholder='Link da imagem da plataforma'>
+                  <input id='img2' type='file' class='form-control' name='img[]' placeholder='Link da imagem da plataforma'>
+                  <input id='img3' type='file' class='form-control' name='img3[]' placeholder='Link da imagem da plataforma'>
                   @if ($errors->has("img"))
                   <span class='help-block text-danger'>
                     <strong>{{ $errors->first("img") }}</strong>

@@ -7,8 +7,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Auth;
 
-
-
+use Illuminate\Support\Facades\Schema;
 
 class AngerController extends Controller
 {
@@ -20,7 +19,6 @@ class AngerController extends Controller
 
 
     public function index(){
-        // return 'fodaci';
         return view('anger.index');
     }
     public function users()

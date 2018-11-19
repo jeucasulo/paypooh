@@ -80,6 +80,7 @@
                 <label for='img' class='col-md-4 control-label'>Imagem</label>
                 <div class='col-md-6'>
                   <label id='img' class='form-control' name='img'>{{$platform->img}}<label>
+                  <img src="/img/{{$platform->img}}" alt="" width="300" height="300">
                 </div>
               </div>
 

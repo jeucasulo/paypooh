@@ -80,6 +80,8 @@ Route::get('/crud/platform/show/{id}', ['uses' => 'PlatformController@show', 'as
 Route::get('/crud/platform/create', ['uses' => 'PlatformController@create', 'as' => 'cruds.platform.create']);
 Route::post('/crud/platform/store', ['uses' => 'PlatformController@store', 'as' => 'cruds.platform.store']);
 Route::get('/crud/platform/edit/{id}', ['uses' => 'PlatformController@edit', 'as' => 'cruds.platform.edit']);
+Route::get('/crud/platform/img/{id}', ['uses' => 'PlatformController@img', 'as' => 'cruds.platform.img']);
+Route::post('/crud/platform/img-store', ['uses' => 'PlatformController@imgUpdate', 'as' => 'cruds.platform.img-store']);
 Route::put('/crud/platform/update/{id}', ['uses' => 'PlatformController@update', 'as' => 'cruds.platform.update']);
 Route::get('/crud/platform/destroy/{id}', ['uses' => 'PlatformController@destroy', 'as' => 'cruds.platform.destroy']);
 /*---------- BLOCK Platform CRUD----------*/
