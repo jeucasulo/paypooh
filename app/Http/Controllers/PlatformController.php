@@ -58,6 +58,8 @@ class PlatformController extends Controller
 		$imgName = "platform-".str_replace(' ', '', $request->name).".".$request->img->getClientOriginalExtension();
 		$this->validate($request, ['img' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048']);
 		$img = Image::make($request->file('img')->getRealPath());
+		$img->resize(320, 240);
+		// $img->resize(160, 120);
 		$img->save('img/plataformas/'.$imgName);
 		//"imgName: platform-LojaIntegrada.jpg - platform->img: platform-LojaIntegrada.jpg"
 		//update db
@@ -75,7 +77,7 @@ class PlatformController extends Controller
 
 	}
 	public function imgStore($imgName,$request){
-			$this->validate($request, ['img' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048'],['img.required'=>'Imagem requerida']);
+			$this->validate($request, ['img' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048'],['img.required'=>'Imagem requerida','img.image'=>'Arquivo deve ser uma imagem']);
 			$img = Image::make($request->file('img')->getRealPath());
 			$img->save('img/plataformas/'.$imgName);
 
@@ -89,6 +91,7 @@ class PlatformController extends Controller
  			if(999==999){ // input your acl or condition
 
 			$imgName = "platform-".str_replace(' ', '', $request->name).".".$request->img->getClientOriginalExtension();
+			// dd($imgName);
 			$this->imgStore($imgName,$request);
 
 			\App\Platform::create([

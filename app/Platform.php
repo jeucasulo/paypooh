@@ -10,8 +10,8 @@ class Platform extends Model
     	'name', 'desc', 'integration', 'ec', 'pp','active','details','img','order'
     ];
 
-    // public function roles(){
-    // 	return $this->belongsToMany(\App\Role::class);
-    // }
+    public function instructions(){
+    	return $this->hasMany(\App\Instruction::class);
+    }
 
 }

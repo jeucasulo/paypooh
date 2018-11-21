@@ -24,7 +24,7 @@
       <div class='panel panel-default'>
         <div class='panel-body'>
           <div class='col-md-12'>
-            <form id='updateForm' class='form-horizontal' role='form' method='POST' action='{{route('cruds.platform.img-store')}}' enctype='multipart/form-data'>
+            <form id='updateForm' class='form-horizontal' role='form' method='POST' action='{{route('cruds.instruction.img-store')}}' enctype='multipart/form-data'>
 
               {{ csrf_field() }}
 
@@ -33,34 +33,34 @@
               <div class='form-group{{ $errors->has("id") ? " has-error" : "" }}'>
                 <label for='id' class='col-md-4 control-label'>Id:</label>
                 <div class='col-md-6'>
-                  <input id='id' type='text' class='form-control' name='id' placeholder='Nome da plataforma' value="{{$platform->id}}" readonly>
+                  <input id='id' type='text' class='form-control' name='id' placeholder='Nome da plataforma' value="{{$instruction->id}}" readonly>
                 </div>
               </div>
 
-              <!-- name -->
-              <div class='form-group{{ $errors->has("name") ? " has-error" : "" }}'>
-                <label for='name' class='col-md-4 control-label'>Name</label>
+              <!-- platform name -->
+              <div class='form-group{{ $errors->has("platform_id") ? " has-error" : "" }}'>
+                <label for='platform_id' class='col-md-4 control-label'>Plataforma</label>
                 <div class='col-md-6'>
-                  <input id='name' type='text' class='form-control' name='name' placeholder='Nome da plataforma' value="{{$platform->name}}" readonly>
+                  <input id='platform_id' type='text' class='form-control' name='platform_id' placeholder='Nome da plataforma' value="{{$instruction->platform->name}}" readonly>
                 </div>
               </div>
 
               <!-- current img -->
               <div class='form-group'>
-                <label for='img' class='col-md-4 control-label'>Imagem atual</label>
+                <label for='' class='col-md-4 control-label'>Imagem atual</label>
                 <div class='col-md-6'>
-                  <img src="/img/plataformas/{{$platform->img}}" alt="" width="150" height="150" class="img-thumbnail">
+                  <img src="/img/instructions/{{$instruction->img}}" alt="" width="150" height="150" class="img-thumbnail">
                 </div>
               </div>
 
 
               <!-- img -->
               <div class='form-group{{ $errors->has("img") ? " has-error" : "" }}'>
-                <label for='img' class='col-md-4 control-label'>Imagem</label>
+                <label for='img' class='col-md-4 control-label'>Alterar imagem</label>
                 <div class='col-md-6'>
                   <input id='img' type='file' class='form-control' name='img' placeholder='Link da imagem da plataforma'>
 
-                  <!-- <a href='{{route('cruds.platform.img-store')}}' class='btn btn-info'>Atualizar imagem</a> -->
+                  <!-- <a href='{{route('cruds.instruction.img-store')}}' class='btn btn-info'>Atualizar imagem</a> -->
                   @if ($errors->has("img"))
                   <span class='help-block text-danger'>
                     <strong>{{ $errors->first("img") }}</strong>
@@ -72,10 +72,9 @@
 
               <div class='form-group{{ $errors->has("label") ? " has-error" : "" }}'>
                 <div class='col-md-6'>
-                  <!-- <a href='{{route('cruds.platform.update',$id)}}' class='btn btn-info'>Atualizar</a> -->
-                  <button type="submit"  href='{{route('cruds.platform.img-store')}}' class='btn btn-info'>Atualizar imagem</button>
-                  <a href='{{route('cruds.platform.edit',$platform->id)}}' class='btn btn-warning'>Voltar</a>
-
+                  <!-- <a href='{{route('cruds.instruction.update',$id)}}' class='btn btn-info'>Atualizar</a> -->
+                  <button type="submit"  href='{{route('cruds.instruction.img-store')}}' class='btn btn-info'>Atualizar imagem</button>
+                  <a href='{{route('cruds.instruction.edit',$instruction->id)}}' class='btn btn-warning'>Voltar</a>
                 </div>
               </div>
 

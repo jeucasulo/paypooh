@@ -1,6 +1,22 @@
-@extends('layouts.app')
+@extends('layouts.master')
 @section('title','Edit')
 @section('content')
+
+<!-- Page Header -->
+<header class="masthead" style="background-image: url('{{asset('img/rawpixel-600782-unsplash.jpg')}}')">
+  <div class="overlay"></div>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-md-10 mx-auto">
+        <div class="site-heading">
+          <h1>Plataformas</h1>
+          <span class="subheading">Gerencie suas plataformas</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
 
  <div class='container'>
  <div class='row'>
@@ -63,7 +79,7 @@
    <label for='ec' class='col-md-4 control-label'>EC</label>
    <div class='col-md-6'>
      <!-- <input id='ec' type='text' class='form-control' name='ec' placeholder='Plataforma aceita PayPal Express Checkout?'> -->
-     <select class="form-control" id="ec" name="ec" >
+     <select class="form-control" id="ec" name="ec">
        <option value="Sim" {{$platform->integration == 'Sim'? "selected" : "" }}>Sim</option>
        <option value="Não" {{$platform->integration == 'Não'? "selected" : "" }}>Não</option>
        <option value="WPS" {{$platform->integration == 'WPS'? "selected" : "" }}>WPS</option>
@@ -134,10 +150,13 @@
  <div class='form-group{{ $errors->has("img") ? " has-error" : "" }}'>
    <label for='img' class='col-md-4 control-label'>Imagem</label>
    <div class='col-md-6'>
-     <label for='img' class='form-control'>{{$platform->img}}<label>
+     <div>
+       <label for='img' class='form-control'>{{$platform->img}}<label>
+     </div>
      <input id='img' type='hidden' class='form-control' name='img' placeholder='Link da imagem da plataforma' value="{{$platform->img}}" readonly>
-     <img src="/img/plataformas/{{$platform->img}}" alt="" width="300" height="300">
-     <a href='{{route('cruds.platform.img',$platform->id)}}' class='btn btn-info'>Atualizar imagem</a>
+     <a href='{{route('cruds.platform.img',$platform->id)}}' class='btn btn-info'>
+       <img src="/img/plataformas/{{$platform->img}}" alt="" width="300" height="300" class="img-thumbnail">
+     </a>
      @if ($errors->has("img"))
      <span class='help-block text-danger'>
        <strong>{{ $errors->first("img") }}</strong>
@@ -164,19 +183,14 @@
    <div class='col-md-6'>
       <!-- <a href='{{route('cruds.platform.update',$id)}}' class='btn btn-info'>Atualizar</a> -->
       <button type="submit"  href='{{route('cruds.platform.update',$id)}}' class='btn btn-info'>Atualizar</button>
+      <a href='{{route('cruds.platform.index')}}' class='btn btn-warning'>Voltar</a>
+
    </div>
  </div>
 
 
 
 </form>
- <div class='form-group'>
- <label for='' class='col-md-4 control-label'></label>
- <div class='col-md-6'>
- <a href='{{route('cruds.platform.index')}}' class='btn btn-info'>Voltar</a>
- <br><br>
-
- <span class='badge'>{{$id}}</span>
 
  </div>
  </div>

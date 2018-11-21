@@ -86,6 +86,19 @@ Route::put('/crud/platform/update/{id}', ['uses' => 'PlatformController@update',
 Route::get('/crud/platform/destroy/{id}', ['uses' => 'PlatformController@destroy', 'as' => 'cruds.platform.destroy']);
 /*---------- BLOCK Platform CRUD----------*/
 
+/*---------- BLOCK Instruction CRUD----------*/
+Route::get('/crud/instruction', ['uses' => 'InstructionController@index', 'as' => 'cruds.instruction.index']);
+Route::get('/crud/instruction/show/{platform_id}', ['uses' => 'InstructionController@show', 'as' => 'cruds.instruction.show']);
+Route::get('/crud/instruction/create/{platform_id}', ['uses' => 'InstructionController@create', 'as' => 'cruds.instruction.create']);
+Route::post('/crud/instruction/store', ['uses' => 'InstructionController@store', 'as' => 'cruds.instruction.store']);
+Route::get('/crud/instruction/edit/{id}', ['uses' => 'InstructionController@edit', 'as' => 'cruds.instruction.edit']);
+Route::get('/crud/instruction/img/{id}', ['uses' => 'InstructionController@img', 'as' => 'cruds.instruction.img']);
+Route::post('/crud/instruction/img-store', ['uses' => 'InstructionController@imgUpdate', 'as' => 'cruds.instruction.img-store']);
+Route::put('/crud/instruction/update/{id}', ['uses' => 'InstructionController@update', 'as' => 'cruds.instruction.update']);
+Route::get('/crud/instruction/destroy/{id}', ['uses' => 'InstructionController@destroy', 'as' => 'cruds.instruction.destroy']);
+/*---------- BLOCK Instruction CRUD----------*/
+
+
 /*---------- BLOCK Topic CRUD----------*/
 Route::get('/crud/topic', ['uses' => 'TopicController@index', 'as' => 'cruds.topic.index']);
 Route::get('/crud/topic/show/{id}', ['uses' => 'TopicController@show', 'as' => 'cruds.topic.show']);

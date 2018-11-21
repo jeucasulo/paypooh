@@ -1,4 +1,5 @@
   @extends('layouts.master')
+  @section('title','Painel de controle')
 
   @section('content')
 
@@ -35,7 +36,7 @@
                   <div class="card-body">
                     <h5 class="card-title">Tutoriais</h5>
                     <p class="card-text">Gerencie e adicione tutoriais.</p>
-                    <a href="#" class="btn btn-primary">Configurações</a>
+                    <a href="{{route('cruds.instruction.index')}}" class="btn btn-primary">Configurações</a>
                   </div>
                 </div>
           </div>

@@ -26,13 +26,13 @@ class PlatformRequest extends FormRequest
       //    	'name', 'desc', 'integration', 'ec', 'pp','active','details','img'
 
         return [
-          'name' => 'required|max:25',
+          'name' => 'required|unique:platforms,name|max:25',
           'desc' => 'required|max:25',
           'integration' => 'required|max:25',
           'ec' => 'required|max:25',
           'pp' => 'required|max:25',
           'active' => 'required|max:25',
-          'details' => 'required|max:25',
+          'details' => 'required|max:250',
           'img' => 'required',
           'order' => 'required|integer'
         ];
@@ -42,6 +42,7 @@ class PlatformRequest extends FormRequest
         return [
           'name.required' => 'O campo Nome é obrigatório',
           'name.max' => 'O campo Nome deve ter no maximo 25 caracteres',
+          'name.unique' => 'Plataforma já inserida',
           'desc.required' => 'O campo Descrição é obrigatório',
           'desc.max' => 'O campo Descrição deve ter no maximo   25 caracteres',
           'integration.required' => 'O campo Integração é obrigatório',
