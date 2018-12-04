@@ -45,7 +45,7 @@
                 <a class="dropdown-item" href="#">Magento</a>
                 <a class="dropdown-item" href="#">Shopify</a> -->
                 @forelse($platforms as $platform)
-                <a class="dropdown-item" href="{{route('show', $platform->id)}}">{{$platform->name}}</a>
+                <a class="dropdown-item" href="{{route('show', $platform->id)}}" target="_blank">{{$platform->name}}</a>
                   @empty
                 @endforelse
               </div>

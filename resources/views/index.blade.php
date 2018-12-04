@@ -27,7 +27,7 @@
         @forelse($platforms as $platform)
           <div class="col-12 col-sm-6 col-md-4 col-lg-3">
             <div class="card" style="width: 18rem;">
-              <a href="{{route('cruds.instruction.show',$platform->id)}}">
+              <a href="{{route('show',$platform->id)}}" target="_blank">
                 <img class="card-img-top" src="/img/plataformas/{{$platform->img}}" alt="Card image cap" width="300" height="200">
               </a>
               <div class="card-body d-none">
