@@ -28,20 +28,28 @@
 
               {{ csrf_field() }}
 
-
-              <!-- id -->
-              <div class='form-group{{ $errors->has("id") ? " has-error" : "" }}'>
-                <label for='id' class='col-md-4 control-label'>Id:</label>
-                <div class='col-md-6'>
-                  <input id='id' type='text' class='form-control' name='id' placeholder='Nome da plataforma' value="{{$instruction->id}}" readonly>
-                </div>
-              </div>
-
-              <!-- platform name -->
+              {{$instruction->platform->name}}
+              <!-- platform_name -->
               <div class='form-group{{ $errors->has("platform_id") ? " has-error" : "" }}'>
                 <label for='platform_id' class='col-md-4 control-label'>Plataforma</label>
                 <div class='col-md-6'>
-                  <input id='platform_id' type='text' class='form-control' name='platform_id' placeholder='Nome da plataforma' value="{{$instruction->platform->name}}" readonly>
+                  <input id='platform_name' type='text' class='form-control' name='platform_name' placeholder='text/binary' value="{{$instruction->platform->name}}" readonly>
+                  @if ($errors->has("user_id"))
+                  <span class='help-block text-danger'>
+                    <strong>{{ $errors->first("platform_id") }}</strong>
+                  </span>
+                  @endif
+                </div>
+              </div>
+
+
+
+
+              <!-- platform name -->
+              <div class='form-group{{ $errors->has("platform_id") ? " has-error" : "" }}'>
+                <label for='platform_id' class='col-md-4 control-label'>Id da Plataforma</label>
+                <div class='col-md-6'>
+                  <input id='platform_id' type='text' class='form-control' name='platform_id' placeholder='Nome da plataforma' value="{{$instruction->platform_id}}" readonly>
                 </div>
               </div>
 

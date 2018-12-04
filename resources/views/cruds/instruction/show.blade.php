@@ -17,7 +17,7 @@
 </div>
 </header>
 
-<!-- <div class='container'> -->
+<div class='container'>
   <div class='row'>
     <div class='col-md-4'>
       <div class='panel panel-default'>
@@ -68,7 +68,6 @@
 
 
     <div class="col-md-8">
-
       <div class="text-center">
           <div class="row">
             <h1 class="h1">Instruções</h1>
@@ -78,11 +77,9 @@
               <a href="{{route('cruds.instruction.create',$platform->id)}}">Adicionar</a>
             </p>
           </div>
-          <div class="row">
+
             @forelse($platform->instructions as $instruction)
-
-
-
+            <div class="row">
               <div class="card">
                 <div class="card-body">
                   <h5 class="card-title">{{$instruction->title}}</h5>
@@ -94,26 +91,16 @@
                   <a href="{{route('cruds.instruction.edit',$instruction->id)}}" class="btn btn-default">Editar</a>
                 </div>
               </div>
-
-<br>
-<br>
-<br>
-
-
+              <br>
+              <br>
+              <br>
+            </div>
               @empty
               <h6 class="h6"> Esta plataforma não possui instruções inseridas</h6>
+
             @endforelse
-
-          </div>
-
       </div>
-
-
-
     </div>
-
-
-
   </div>
 </div>
 @endsection

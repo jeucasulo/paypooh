@@ -48,6 +48,7 @@ class InstructionController extends Controller
  	 * @return \Illuminate\Http\Response
  	 */
 	public function imgUpdate(Request $request){
+		// 	dd($request->platform_name);
 		$this->validate($request, ['img' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048'],['img.required'=>'Imagem requerida']);
 
 		// delete old img
@@ -58,7 +59,7 @@ class InstructionController extends Controller
 		// create new img
 		// $string = str_replace(' ', '', $string);
 
-		$imgName = "instruction-".str_replace(' ', '', $request->platform_id)."-".$request->order.".".$request->img->getClientOriginalExtension();
+		$imgName = str_replace(' ', '', $request->platform_name)."-instruction-".$request->order.".".$request->img->getClientOriginalExtension();
 		$this->validate($request, ['img' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048']);
 		$img = Image::make($request->file('img')->getRealPath());
 		// $img->resize(320, 240);
@@ -91,12 +92,17 @@ class InstructionController extends Controller
 	}
  	public function store(InstructionRequest $request)
  	{
+		// dd($request->order);
 			// dd($request->all());
 			// 'title', 'body', 'img', 'order', 'status', 'active','user_id','platform_id'
 
 			if(999==999){ // input your acl or condition
 
-			$imgName = "instruction-".str_replace(' ', '', $request->platform_id)."-".$request->order.".".$request->img->getClientOriginalExtension();
+			// $imgName = "instruction-".str_replace(' ', '', $request->platform_id)."-".$request->order.".".$request->img->getClientOriginalExtension();
+			$imgName = str_replace(' ', '', $request->platform_name)."-instruction-".$request->order.".".$request->img->getClientOriginalExtension();
+
+			// dd($imgName);
+
 			// dd($imgName);
 			$this->imgStore($imgName,$request);
 

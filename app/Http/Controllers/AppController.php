@@ -9,8 +9,7 @@ class AppController extends Controller
 
     public function admin()
     {
-      return view->('admin');
-        //
+      return view('admin');
     }
 
     /**
@@ -20,7 +19,7 @@ class AppController extends Controller
      */
     public function index()
     {
-        //
+        return view('index');
     }
 
     /**
@@ -52,7 +51,8 @@ class AppController extends Controller
      */
     public function show($id)
     {
-        //
+        $platform = \App\Platform::find($id);
+        return view('show', compact('platform'));
     }
 
     /**

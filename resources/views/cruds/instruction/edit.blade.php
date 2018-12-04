@@ -28,13 +28,25 @@
               <input type='hidden' name='_method' value='put'>
               {{ csrf_field() }}
 
-
-              <!--  -->
-              <!-- platform_id -->
+              {{$instruction->platform->name}}
+              <!-- platform_name -->
               <div class='form-group{{ $errors->has("platform_id") ? " has-error" : "" }}'>
                 <label for='platform_id' class='col-md-4 control-label'>Plataforma</label>
                 <div class='col-md-6'>
-                  <input id='' type='text' class='form-control' name='' placeholder='text/binary' value="{{$instruction->platform->name}}" readonly>
+                  <input id='platform_name' type='text' class='form-control' name='platform_name' placeholder='text/binary' value="{{$instruction->platform->name}}" readonly>
+                  @if ($errors->has("user_id"))
+                  <span class='help-block text-danger'>
+                    <strong>{{ $errors->first("platform_id") }}</strong>
+                  </span>
+                  @endif
+                </div>
+              </div>
+
+              <!-- platform_id -->
+              <div class='form-group{{ $errors->has("platform_id") ? " has-error" : "" }}'>
+                <label for='platform_id' class='col-md-4 control-label'>Id da Plataforma</label>
+                <div class='col-md-6'>
+                  <input id='platform_id' type='text' class='form-control' name='platform_id' placeholder='text/binary' value="{{$instruction->platform_id}}" readonly>
                   @if ($errors->has("user_id"))
                   <span class='help-block text-danger'>
                     <strong>{{ $errors->first("platform_id") }}</strong>
@@ -95,7 +107,7 @@
                 <div class='form-group{{ $errors->has("order") ? " has-error" : "" }}'>
                   <label for='order' class='col-md-4 control-label'>Ordem</label>
                   <div class='col-md-6'>
-                    <input id='order' type='number' class='form-control' name='order' placeholder='Numero de ordem de exibição' step='10' min='0' max='1000' value="{{$instruction->order}}">
+                    <input id='order' type='number' class='form-control' name='order' placeholder='Numero de ordem de exibição' step='10' min='0' max='1000' value="{{$instruction->order}}" readonly>
                     @if ($errors->has("order"))
                     <span class='help-block text-danger'>
                       <strong>{{ $errors->first("order") }}</strong>

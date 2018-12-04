@@ -11,13 +11,17 @@
 |
 */
 
-Route::get('/', function () {
-    return view('index');
-});
-Route::get('/admin', function () {
-    return view('admin');
-});
+// Route::get('/', function () {
+//     return view('index');
+// });
+Route::get('/', ['uses' => 'AppController@index', 'as' => 'index']);
+Route::get('/show/{id}', ['uses' => 'AppController@show', 'as' => 'show']);
+Route::get('/admin', ['uses' => 'AppController@admin', 'as' => 'admin']);
 
+// Route::get('/admin', function () {
+//     return view('admin');
+// });
+//
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
