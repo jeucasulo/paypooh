@@ -52,7 +52,7 @@ return [
     |
     */
 
-    'url' => env('APP_URL', 'http://localhost'),
+    'url' => env('APP_URL', 'http://www.paypfooh.com'),
 
     /*
     |--------------------------------------------------------------------------
@@ -78,7 +78,7 @@ return [
     |
     */
 
-    'locale' => 'pt',
+    'locale' => 'en',
 
     /*
     |--------------------------------------------------------------------------
@@ -91,7 +91,7 @@ return [
     |
     */
 
-    'fallback_locale' => 'pt',
+    'fallback_locale' => 'en',
 
     /*
     |--------------------------------------------------------------------------
@@ -117,7 +117,7 @@ return [
     |
     */
 
-    'key' => env('APP_KEY'),
+    'key' => "base64:jcvOxM8QhZ1Bpj/vqt64tdZk1N31F76ObSg72UkaC4w=",
 
     'cipher' => 'AES-256-CBC',
 
