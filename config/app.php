@@ -52,7 +52,7 @@ return [
     |
     */
 
-    'url' => env('APP_URL', 'http://www.paypfooh.com'),
+    'url' => env('APP_URL', 'http://www.paypooh.com'),
 
     /*
     |--------------------------------------------------------------------------
