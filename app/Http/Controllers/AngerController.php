@@ -54,6 +54,7 @@ class AngerController extends Controller
             //$role = \App\Role::create(['model_column'=>$request->input('input_html'),'model_column2'=>$request->input('input_html2'),]);
             //$role = new Role; $role->name = $request->input('input_html'); $role->save(); //insertedId = $role->id;
             \Session::flash('flash_message',[
+                'title'=>"Exito!",
                 'msg'=>"Operação realizada com sucesso!",
                 'class'=>"alert-success"
             ]);
@@ -75,6 +76,7 @@ class AngerController extends Controller
 
 
             \Session::flash('flash_message',[
+                'title'=>"Exito",
                 'msg'=>"Role successfully deleted!",
                 'class'=>"alert-success"
             ]);
@@ -119,6 +121,7 @@ class AngerController extends Controller
             //$role = \App\Role::create(['model_column'=>$request->input('input_html'),'model_column2'=>$request->input('input_html2'),]);
             //$role = new Role; $role->name = $request->input('input_html'); $role->save(); //insertedId = $role->id;
             \Session::flash('flash_message',[
+                'title'=>"Exito",
                 'msg'=>"Permission successfully stored!",
                 'class'=>"alert-success"
             ]);
@@ -141,6 +144,7 @@ class AngerController extends Controller
         $role->permissions()->detach($permission_id);
 
             \Session::flash('flash_message',[
+                'title'=>"Exito!",
                 'msg'=>"Permission successfully deleted!",
                 'class'=>"alert-success"
             ]);
@@ -156,6 +160,12 @@ class AngerController extends Controller
         $asset = asset('');
         // $user = \Auth::User();
         return view('anger.permissions', compact('permissions', 'asset'));
+    }
+
+    public function edit(){
+      $permissions = \App\Permission::all();
+      $roles = \App\Role::all();
+      return view('anger.edit', compact('permissions', 'roles'));
     }
 
 

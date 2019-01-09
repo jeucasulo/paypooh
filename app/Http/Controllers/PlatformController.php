@@ -32,6 +32,7 @@ class PlatformController extends Controller
  	 {
  		if(999==999){ // input your acl or condition
  			//return redirect()->route('cruds.platform.create');
+
  			return view('cruds.platform.create');
  		}else{
  			return redirect()->route('cruds.platform.index');

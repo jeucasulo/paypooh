@@ -1,4 +1,4 @@
-@extends('anger.master',['jsFile'=>$asset.'js/index.js','cssFile'=>$asset.'css/index.css'])
+@extends('layouts.master')
 
 @section('title', 'User')
 
@@ -8,14 +8,20 @@
 
 @section('content')
     @parent
-<div id="" class="container">
-  <div id="" class="row">
-    <div id="" class="col">
-      <h1 class="text-muted text-center">Usuário</h1>
-    </div>
-  </div>
-</div>
-<hr>
+    <!-- Page Header -->
+    <header class="masthead" style="background-image: url('{{asset('img/nikita-kachanovsky-445394-unsplash.jpg')}}')">
+      <!-- <div class="overlay"></div> -->
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-md-10 mx-auto">
+            <div class="site-heading">
+              <!-- <h1>Usuários</h1>
+              <span class="subheading">Gerencie suas plataformas</span> -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
 
 
 <div>

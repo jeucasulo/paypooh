@@ -1,10 +1,21 @@
-@extends('layouts.app')
+@extends('layouts.master')
 @section('title','Create')
 @section('content')
 
-<br>
-<br>
-<br>
+<!-- Page Header -->
+<header class="masthead" style="background-image: url('{{asset('img/rawpixel-600782-unsplash.jpg')}}')">
+<div class="overlay"></div>
+<div class="container">
+  <div class="row">
+    <div class="col-lg-8 col-md-10 mx-auto">
+      <div class="site-heading">
+        <h1>Plataformas</h1>
+        <span class="subheading">Gerencie suas plataformas</span>
+      </div>
+    </div>
+  </div>
+</div>
+</header>
 
 <div class='container'>
   <div class='row'>

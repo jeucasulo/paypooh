@@ -53,13 +53,14 @@ class InstructionController extends Controller
 
 		// delete old img
 		$instruction = \App\Instruction::find($request->id);
+
 		if(File::exists("img/instructions/".$instruction->img)) {
     	File::delete("img/instructions/".$instruction->img);
 		}
 		// create new img
 		// $string = str_replace(' ', '', $string);
 
-		$imgName = str_replace(' ', '', $request->platform_name)."-instruction-".$request->order.".".$request->img->getClientOriginalExtension();
+		$imgName = str_replace(' ', '', $request->platform_name)."-instruction-".$instruction->order.".".$request->img->getClientOriginalExtension();
 		$this->validate($request, ['img' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048']);
 		$img = Image::make($request->file('img')->getRealPath());
 		// $img->resize(320, 240);
@@ -179,13 +180,14 @@ class InstructionController extends Controller
 
 
 			\App\Instruction::find($id)->update($request->all());
+			$platformId = \App\Instruction::find($id)->platform_id;
 
  			\Session::flash('flash_message',[
  				'title'=>"Sucesso!",
  				'msg'=>"Perfil atualizado com êxito",
  				'class'=>"alert-success"
  			]);
- 			return redirect()->route('cruds.instruction.index');
+ 			return redirect()->route('cruds.instruction.show', $platformId);
  		}else{
  			return redirect()->route('cruds.instruction.index');
  		}

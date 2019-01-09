@@ -2,17 +2,6 @@
 @section('title','Index')
 @section('content')
 
-@if(Session::has('flash_message'))
-<div class='container'>
-  <div class='alert {{Session::get("flash_message")["class"]}} alert-dismissible fade show text-center' platform='alert'>
-    <strong>{{Session::get('flash_message')['title']}}</strong>
-    {{Session::get('flash_message')['msg']}}
-    <button type='button' class='close' data-dismiss='alert' aria-label='Close'>
-      <span aria-hidden='true'>&times;
-      </span></button>
-  </div>
-</div>
-@endif
 
 <!-- Page Header -->
 <header class="masthead" style="background-image: url('{{asset('img/rawpixel-600782-unsplash.jpg')}}')">

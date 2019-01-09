@@ -1,0 +1,13 @@
+Dont forget to upload the database file
+---
+fix img path on views/show.blade.php view
+---
+insert text formatter in the required fields
+---
+insert get and create credencials module
+---
+insert search filter
+---
+insert log module
+---
+insert news modeule

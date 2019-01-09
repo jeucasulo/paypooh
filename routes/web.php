@@ -44,7 +44,7 @@ Route::post('/anger/role/destroy', ['uses' => 'AngerController@rolePermissionDet
 
 
 Route::get('/anger/permissions', ['uses' => 'AngerController@permissions', 'as' => 'anger.permissions']);
-Route::get('/anger/edit', ['uses' => 'Casulo\Anger\AngerController@edit', 'as' => 'anger.edit']);
+Route::get('/anger/edit', ['uses' => 'AngerController@edit', 'as' => 'anger.edit']);
 
 
 Route::get('/anger/test', ['uses' => 'AngerController@test', 'as' => 'anger.test']);

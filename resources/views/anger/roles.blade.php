@@ -1,4 +1,4 @@
-@extends('anger.master')
+@extends('layouts.master')
 
 @section('title', 'Roles')
 
@@ -10,17 +10,21 @@
 
 
 
-<!-- crud message -->
-@if(Session::has('flash_message'))<div class='container'><div class='alert {{Session::get("flash_message")["class"]}} alert-dismissible fade show text-center' role='alert'><strong>{{Session::get('flash_message')['title']}}</strong> {{Session::get('flash_message')['msg']}}<button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span></button></div></div>@endif
-
     @parent
-<div id="" class="container">
-  <div id="" class="row">
-    <div id="" class="col-12-xs">
-      <h1 class="text-danger text-center">Perfis</h1>
-    </div>
-  </div>
-</div>
+    <!-- Page Header -->
+    <header class="masthead" style="background-image: url('{{asset('img/nikita-kachanovsky-445394-unsplash.jpg')}}')">
+      <div class="overlay"></div>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-md-10 mx-auto">
+            <div class="site-heading">
+              <h1>Perfis</h1>
+              <!-- <span class="subheading">Gerencie suas plataformas</span> -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
 
 <div>
 

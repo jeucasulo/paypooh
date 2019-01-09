@@ -42,6 +42,13 @@
                 </div>
               </div>
 
+              <!-- platform name -->
+              <div class='form-group{{ $errors->has("id") ? " has-error" : "" }}'>
+                <label for='id' class='col-md-4 control-label'>Id da Plataforma</label>
+                <div class='col-md-6'>
+                  <input id='id' type='text' class='form-control' name='id' placeholder='Id' value="{{$instruction->id}}" readonly>
+                </div>
+              </div>
 
 
 

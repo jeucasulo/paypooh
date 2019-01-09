@@ -107,6 +107,10 @@
                                          document.getElementById('logout-form').submit();">
                             {{ __('Logout') }}
                         </a>
+                        <a class="dropdown-item" href="{{ route('admin') }}">Admin</a>
+
+
+
 
                         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                             @csrf
@@ -123,9 +127,28 @@
       </div>
     </nav>
 
-    <!-- <main class="py-4">
-    </main> -->
+
+    <!-- crud message -->
     @yield('content')
+
+
+
+
+
+
+    <!-- crud message -->
+    @if(Session::has('flash_message'))
+    <div class='container'>
+      <div class='alert {{Session::get("flash_message")["class"]}} alert-dismissible fade show text-center' platform='alert'>
+        <strong>{{Session::get('flash_message')['title']}}</strong>
+        {{Session::get('flash_message')['msg']}}
+        <button type='button' class='close' data-dismiss='alert' aria-label='Close'>
+          <span aria-hidden='true'>&times;
+          </span></button>
+      </div>
+    </div>
+    @endif
+
 
     <footer>
       <div class="container">

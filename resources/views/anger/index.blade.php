@@ -1,4 +1,4 @@
-@extends('anger.master')
+@extends('layouts.master')
 
 @section('title', 'Anger')
 
@@ -9,13 +9,28 @@
 
 @section('content')
     @parent
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
+
+
+    <!-- Page Header -->
+    <header class="masthead" style="background-image: url('{{asset('img/nikita-kachanovsky-445394-unsplash.jpg')}}')">
+      <div class="overlay"></div>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-md-10 mx-auto">
+            <div class="site-heading">
+              <!-- <h1>Plataformas</h1> -->
+              <!-- <span class="subheading">Gerencie suas plataformas</span> -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+<div class="container">
+
+
     <div class="row">
-      <div class="col-md-8 offset-md-2">
+      <div class="col-md-12">
 
         <div class="row text-center">
           <div class="col-sm">
@@ -50,12 +65,12 @@
           <div class="col-sm">
             <div class="card">
               <div class="card-header">
-                Editar
+                Permissões
               </div>
               <div class="card-body">
                 <h5 class="card-title">Criação e edição</h5>
                 <p class="card-text">Crie e edite novos perfis e permissões a serem atribuídos aos usuários.</p>
-                <a href="{{route('anger.edit')}}" class="btn btn-primary btn-block">Editar</a>
+                <a href="{{route('anger.permissions')}}" class="btn btn-primary btn-block">Permissões</a>
               </div>
             </div>
           </div>
@@ -65,5 +80,5 @@
       </div>
     </div>
 
-
+</div>
 @endsection
